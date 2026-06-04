@@ -1,0 +1,454 @@
+/* =============================================
+   নিরাপদ আশ্রয় — Women's Safety Helpline Directory
+   Bangladesh
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --red:      #c0392b;
+  --red-dark: #922b21;
+  --red-light:#fdecea;
+  --green:    #1a7a4a;
+  --green-light: #eaf6f0;
+  --purple:   #6c3483;
+  --purple-light: #f5eef8;
+  --blue:     #1a5276;
+  --blue-light: #eaf2fb;
+  --orange:   #ca6f1e;
+  --orange-light: #fef5e7;
+  --teal:     #117a65;
+  --teal-light: #e8f8f5;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-400: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-800: #343a40;
+  --white:    #ffffff;
+  --text:     #1a1a2e;
+  --radius:   12px;
+  --shadow:   0 2px 12px rgba(0,0,0,0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f5f4f0;
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ---- EMERGENCY BANNER ---- */
+.emergency-banner {
+  background: var(--red);
+  color: white;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.emergency-banner .emergency-icon {
+  margin-right: 4px;
+}
+
+.emergency-number {
+  color: #ffe082;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border-bottom: 1px dashed #ffe082;
+}
+
+.emergency-number:hover {
+  color: white;
+}
+
+/* ---- HEADER ---- */
+.site-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  color: white;
+  padding: 32px 0 24px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 16px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon {
+  font-size: 42px;
+  line-height: 1;
+}
+
+.site-title {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #f8d7da;
+}
+
+.site-subtitle {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 2px;
+}
+
+/* ---- LANGUAGE TOGGLE ---- */
+.lang-toggle {
+  display: flex;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  border: none;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-btn.active {
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.header-desc {
+  color: rgba(255,255,255,0.75);
+  font-size: 15px;
+  max-width: 680px;
+  margin-bottom: 20px;
+}
+
+/* ---- SEARCH BAR ---- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: var(--radius);
+  padding: 4px 16px;
+  gap: 10px;
+  margin-bottom: 14px;
+  max-width: 560px;
+}
+
+.search-icon { font-size: 18px; }
+
+.search-bar input {
+  border: none;
+  outline: none;
+  font-size: 15px;
+  width: 100%;
+  padding: 10px 0;
+  color: var(--text);
+  background: transparent;
+}
+
+.search-bar input::placeholder { color: var(--gray-400); }
+
+/* ---- FILTER BUTTONS ---- */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: white;
+  color: var(--text);
+  border-color: white;
+}
+
+/* ---- MAIN CONTENT ---- */
+main {
+  padding: 32px 20px 48px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* ---- CARDS ---- */
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--gray-200);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+
+.card.urgent {
+  border-color: #f5b7b1;
+  background: #fffdf d;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* category badges */
+.cat-badge {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.cat-badge.emergency { background: var(--red-light); color: var(--red-dark); }
+.cat-badge.legal      { background: var(--blue-light); color: var(--blue); }
+.cat-badge.shelter    { background: var(--orange-light); color: var(--orange); }
+.cat-badge.medical    { background: var(--green-light); color: var(--green); }
+.cat-badge.mental     { background: var(--teal-light); color: var(--teal); }
+.cat-badge.trafficking{ background: var(--purple-light); color: var(--purple); }
+
+.badge-free {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: #e9f7ef;
+  color: #1a7a4a;
+  letter-spacing: 0.5px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.card-org {
+  font-size: 12px;
+  color: var(--gray-600);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  gap: 8px;
+}
+
+.hours {
+  font-size: 12px;
+  color: var(--gray-600);
+}
+
+.call-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--red);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.call-btn:hover {
+  background: var(--red-dark);
+  transform: scale(1.03);
+}
+
+.call-btn.website-btn {
+  background: var(--blue);
+}
+.call-btn.website-btn:hover {
+  background: var(--blue-dark, #154360);
+}
+
+.card-extra {
+  font-size: 12px;
+  color: var(--gray-600);
+  padding-top: 8px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.card-extra a {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.card-extra a:hover { text-decoration: underline; }
+
+/* ---- NO RESULTS ---- */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray-600);
+  font-size: 16px;
+}
+
+.hidden { display: none; }
+
+/* ---- HOW TO USE ---- */
+.how-to-use {
+  background: #1a1a2e;
+  color: white;
+  padding: 48px 0;
+}
+
+.how-to-use h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f8d7da;
+  margin-bottom: 28px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.step-num {
+  background: var(--red);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+
+.step p strong {
+  color: #ffe082;
+}
+
+/* ---- FOOTER ---- */
+.site-footer {
+  background: #111;
+  color: rgba(255,255,255,0.6);
+  padding: 32px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.site-footer p { margin-bottom: 8px; }
+
+.site-footer a {
+  color: #87ceeb;
+  text-decoration: none;
+}
+
+.site-footer a:hover { text-decoration: underline; }
+
+.footer-small {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 600px) {
+  .site-title { font-size: 22px; }
+  .header-top { flex-direction: column; align-items: flex-start; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .card-footer { flex-direction: column; align-items: flex-start; }
+  .call-btn { width: 100%; justify-content: center; }
+  .filter-row { gap: 6px; }
+  .filter-btn { font-size: 12px; padding: 5px 10px; }
+  .emergency-banner { font-size: 12px; }
+}
+
+/* ---- PRINT ---- */
+@media print {
+  .emergency-banner, .search-bar, .filter-row, .lang-toggle { display: none; }
+  .card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  .call-btn { background: none; color: black; border: 1px solid black; }
+  body { background: white; }
+}
